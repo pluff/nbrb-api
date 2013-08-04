@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'spec_helper'
 
 describe Nbrb::Api do
@@ -10,12 +11,8 @@ describe Nbrb::Api do
 
       it 'returns properly structured hash for each currency rate' do
         savon.expects(:ex_rates_daily).with(message: {on_date: Date.today}).returns(simple_response)
-        expect(subject.daily_rates).to eql ({'AUD' => 42.42})
-      end
-
-      it 'normalizes scaled currency rates' do
-        savon.expects(:ex_rates_daily).with(message: {on_date: Date.today}).returns(scaled_response)
-        expect(subject.daily_rates).to eql ({'AUD' => 4.242})
+        #intentionally failing
+        expect(subject.daily_rates).to eql(1)
       end
     end
   end

@@ -11,9 +11,16 @@ module Nbrb
 
         result = {}
         [rates].flatten.each do |rate|
-          result[rate[:cur_abbreviation]] = rate[:cur_official_rate].to_f/rate[:cur_scale].to_i
+          result[rate[:cur_abbreviation]] = cleanup_rate_row(rate)
         end
         result
+      end
+
+      def cleanup_rate_row(row)
+        row.each do |key, value|
+          row.delete(key) if key.to_s[0] == '@'
+        end
+        row
       end
     end
   end

@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'rspec'
 require 'webmock/rspec'
 require 'nbrb-api'
@@ -8,7 +9,7 @@ def fixture(fixture_path)
   File.read("spec/fixtures/#{fixture_path}")
 end
 
-Rspec.configure do |c|
+RSpec.configure do |c|
   c.include Savon::SpecHelper
   c.before :all do
     savon.mock!
