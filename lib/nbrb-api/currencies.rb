@@ -2,7 +2,7 @@ module Nbrb
   module Api
     module Currencies
       def daily_rates(date = Date.today)
-        response = call(:ex_rates_daily, message: {on_date: date})
+        response = call(:ex_rates_daily, message: {on_date: date.to_date})
         rates = response.find(*%w{Body ExRatesDailyResponse ExRatesDailyResult diffgram new_data_set daily_ex_rates_on_date})
 
         if rates.nil?

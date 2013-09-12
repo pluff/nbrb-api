@@ -10,7 +10,7 @@ describe Nbrb::Api do
       let(:scaled_response) { fixture('response/daily_rates_scaled.xml') }
 
       it 'returns properly structured hash for each currency rate' do
-        savon.expects(:ex_rates_daily).with(message: {on_date: Date.today}).returns(simple_response)
+        savon.expects(:ex_rates_daily).with(message: {on_date: DateTime.now}).returns(simple_response)
         #intentionally failing
         expect(subject.daily_rates).to eql(1)
       end
