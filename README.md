@@ -1,6 +1,6 @@
 # Nbrb::Api
 
-TODO: Write a gem description
+The gem is not complete! Only daily exchange rates methods are available
 
 ## Installation
 
