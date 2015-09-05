@@ -18,7 +18,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Nbrb::Api.daily_rates
+# =>
+{
+  "USD"=> {
+    :cur_quot_name=>"1 доллар США",
+    :cur_scale=>"1",
+    :cur_official_rate=>"17683.00",
+    :cur_code=>"840",
+    :cur_abbreviation=>"USD"
+  },
+  "DKK"=> {
+    :cur_quot_name=>"1 датская крона",
+    :cur_scale=>"1",
+    :cur_official_rate=>"2641.72",
+    :cur_code=>"208",
+    :cur_abbreviation=>"DKK"
+  },
+  ...
+}
+# It is also possible to specify date to get rates:
+Nbrb::Api.daily_rates(Date.yesterday)
+Nbrb::Api.daily_rates('2015.08.05')
+Nbrb::Api.daily_rates(1.year.ago)
+```
 
 ## Contributing
 
