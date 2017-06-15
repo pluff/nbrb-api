@@ -44,6 +44,11 @@ Nbrb::Api.daily_rates('2015.08.05')
 Nbrb::Api.daily_rates(1.year.ago)
 ```
 
+### With proxy
+```ruby
+Nbrb::Api.proxy = 'http://proxy.local:1234'
+```
+
 ## Contributing
 
 1. Fork it
