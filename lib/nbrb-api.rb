@@ -5,7 +5,7 @@ require 'savon'
 
 module Nbrb
   module Api
-    WSDL = "http://www.nbrb.by/Services/ExRates.asmx?WSDL".freeze
+    WSDL = "https://www.nbrb.by/Services/ExRates.asmx?WSDL".freeze
     extend Currencies
 
     class << self
