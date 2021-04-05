@@ -5,8 +5,14 @@ require 'savon'
 
 module Nbrb
   module Api
-    WSDL = "http://www.nbrb.by/Services/ExRates.asmx?WSDL".freeze
+    WSDL = "https://www.nbrb.by/Services/ExRates.asmx?WSDL".freeze
     extend Currencies
+
+    class << self
+      attr_accessor :proxy
+    end
+
+    self.proxy = nil
 
     def self.call(operation, params = {})
       client.call(operation, params)
@@ -15,7 +21,11 @@ module Nbrb
     end
 
     def self.client
-      @client ||= Savon.client(wsdl: WSDL, log: false)
+      @client ||= if proxy
+        Savon.client(wsdl: WSDL, log: false, proxy: proxy)
+      else
+        Savon.client(wsdl: WSDL, log: false)
+      end
     end
   end
 end
