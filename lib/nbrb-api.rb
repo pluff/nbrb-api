@@ -22,9 +22,9 @@ module Nbrb
 
     def self.client
       @client ||= if proxy
-        Savon.client(wsdl: WSDL, log: false, proxy: proxy)
+        Savon.client(wsdl: WSDL, log: false, follow_redirects: true, proxy: proxy)
       else
-        Savon.client(wsdl: WSDL, log: false)
+        Savon.client(wsdl: WSDL, log: false, follow_redirects: true)
       end
     end
   end
